@@ -1,0 +1,118 @@
+.how-it-works {
+    background-color: #1A1A1A;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 60px;
+    gap: 30px;
+}
+
+.progress-line {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.progress-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.3;
+}
+
+.step-card {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    flex: 1;
+    background: #1A1A1A;
+    /* To hide line behind text if needed, or transparent */
+    padding: 20px;
+}
+
+.step-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #2C3E50, #1a1a1a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    position: relative;
+    border: 4px solid #1A1A1A;
+    /* Creates gap from progress line */
+    box-shadow: 0 0 0 4px var(--primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover .step-icon-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(255, 107, 53, 0.4);
+}
+
+.step-icon {
+    font-size: 3rem;
+}
+
+.step-number {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 2px solid #1A1A1A;
+}
+
+.step-card h3 {
+    color: white;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+}
+
+.step-card p {
+    color: #888;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .steps-container {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .progress-line {
+        width: 4px;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+    }
+
+    .step-icon-wrapper {
+        margin-bottom: 20px;
+    }
+}
